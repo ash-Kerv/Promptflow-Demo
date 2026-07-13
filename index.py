@@ -28,7 +28,7 @@ env = os.environ.copy()
 # 2) AOAI env
 # -------------------------------
 AZURE_OPENAI_API_KEY     = os.getenv("AZURE_OPENAI_API_KEY")
-AZURE_OPENAI_ENDPOINT    = os.getenv("AZURE_OPENAI_ENDPOINT","https://kd-foundry-accelerators-prj.openai.azure.com/")
+AZURE_OPENAI_ENDPOINT    = os.getenv("AZURE_OPENAI_ENDPOINT","")
 AZURE_OPENAI_API_VERSION = os.getenv("AZURE_OPENAI_API_VERSION", "2024-12-01-preview")
 CHAT_DEPLOYMENT          = os.getenv("AZURE_OPENAI_CHAT_DEPLOYMENT","gpt-4o")
 EMB_DEPLOYMENT           = os.getenv("AZURE_OPENAI_EMB_DEPLOYMENT","text-embedding-3-large")
@@ -230,10 +230,10 @@ print("-------------------------")
 # 4) Download docs via REST + SAS
 #    (reads values from env; FIX: use '&' not '&amp;' in list URL)
 # -------------------------------
-BLOB_ACCOUNT_URL = os.getenv("BLOB_ACCOUNT_URL", "https://kdfoundry.blob.core.windows.net")
+BLOB_ACCOUNT_URL = os.getenv("BLOB_ACCOUNT_URL", "https://.blob.core.windows.net")
 BLOB_CONTAINER   = os.getenv("BLOB_CONTAINER", "crhukinput")
 BLOB_PREFIX      = os.getenv("BLOB_PREFIX", "DataSource")
-SRC_SAS_TOKEN    = os.getenv("SRC_SAS_TOKEN","sp=racwdli&st=2026-03-02T13:26:50Z&se=2026-03-02T21:41:50Z&spr=https&sv=2024-11-04&sr=c&sig=YPBUY%2FsYIVQnJFmFUrPT8G0UylNdcDYYtDTMaYqVir8%3D")  # supply RAW SAS (no HTML escapes)
+SRC_SAS_TOKEN    = os.getenv("SRC_SAS_TOKEN","")  # supply RAW SAS (no HTML escapes)
 BLOB_PROMPT_PREFIX = "prompts"
 
 
@@ -350,10 +350,10 @@ rc = run_graphrag_index(PROJECT_ROOT)
 # -------------------------------
 # 6) Upload results to Blob Storage (outputs/)
 # -------------------------------
-DST_ACCOUNT_URL = os.getenv("DST_ACCOUNT_URL", "https://kdfoundry.blob.core.windows.net")
+DST_ACCOUNT_URL = os.getenv("DST_ACCOUNT_URL", "https://.blob.core.windows.net")
 DST_CONTAINER   = os.getenv("DST_CONTAINER", "crhukoutput")
 DST_PREFIX      = os.getenv("DST_PREFIX", "graphrag_project5")  # folder path inside container
-DST_SAS_TOKEN   = os.getenv("DST_SAS_TOKEN", "sp=racwdli&st=2026-03-02T12:14:13Z&se=2026-03-31T19:29:13Z&spr=https&sv=2024-11-04&sr=c&sig=EPJ9XIwhC1TYIyU%2BADMrUuCv3YmqqSQ6RcKrSwRfqQg%3D")  # RAW SAS (no HTML entities). If not provided, will try Managed Identity.
+DST_SAS_TOKEN   = os.getenv("DST_SAS_TOKEN", "")  # RAW SAS (no HTML entities). If not provided, will try Managed Identity.
 
 def upload_dir(path: Path, account_url: str, container: str, prefix: str, sas: str | None = None):
     if not (account_url and container and prefix):
