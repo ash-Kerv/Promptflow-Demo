@@ -25,10 +25,10 @@ nodes:
     community_level: 1
     dynamic_community_selection: true
     project_dir: GraphRAGprj
-    restore_account_url: https://crukai01.blob.core.windows.net
+    restore_account_url: https://.blob.core.windows.net
     restore_container: crhukoutput
     restore_prefix: graphrag_output_customerdata_v270/graphrag
-    restore_sas_token: sp=racwdlm&st=2026-02-20T14:10:55Z&se=2026-12-31T22:25:55Z&spr=https&sv=2024-11-04&sr=c&sig=OasqVKnUiAm54aIJG5ghiqcXoZmmrmNVI2K37eLsvjU%3D
+    restore_sas_token: 
     search_mode: local
     search_timeout_seconds: 600
   use_variants: false
@@ -36,4 +36,4 @@ node_variants: {}
 app_insights_enabled: true
 environment:
   python_requirements_txt: requirements.txt
-  image: 8340bd664f3a4f9c861376cf355bcff7.azurecr.io/a6f1eb80-3116-4818-af73-5bf3c51b0af0/azureml/azureml_58e3e94b31e9adaa03f3ae3d953de278@sha256:36b2bdda826eb257867d3fd3fa5f8096ad235e831bb0f75e9af10f30f5481edc
+  image: 
